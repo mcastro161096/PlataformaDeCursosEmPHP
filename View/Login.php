@@ -7,9 +7,9 @@ session_start();
 <head>
   <title>Login</title>
   <meta charset="utf-8">
-  <link href="/LoginPHP/CSS/style.css" rel="stylesheet" type="text/css" />
-  <link href="/LoginPHP/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <link href="/LoginPHP/CSS/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+  <link href="/PlataformaDeCursosEmPHP/CSS/style.css" rel="stylesheet" type="text/css" />
+  <link href="/PlataformaDeCursosEmPHP/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="/PlataformaDeCursosEmPHP/CSS/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -22,7 +22,7 @@ session_start();
 
           <div class="panel-body">
 
-            <form method="POST" action="/LoginPHP/Controller/LoginController.php">
+            <form method="POST" action="/PlataformaDeCursosEmPHP/Controller/LoginController.php">
 
               <fieldset>
                
@@ -49,7 +49,7 @@ session_start();
                     <div class="form-group">
                       <input type="submit" class="btn btn-lg btn-primary btn-block" value="Continuar">
                       <input type="reset" class="btn-link pull-left" value="Limpar"/>
-                      <a href="https://localhost/LoginPHP/View/Cadastro.php" class="pull-right">Criar conta</a>
+                      <a href="https://localhost/PlataformaDeCursosEmPHP/View/Cadastro.php" class="pull-right">Criar conta</a>
 
                     </div>
                   </div>

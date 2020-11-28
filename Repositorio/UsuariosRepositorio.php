@@ -35,6 +35,10 @@ class UsuarioRepositorio
                             {
                                 if ($senhaEncontrada == $senha)
                                 {
+                                    if($loginEncontrado == "admin@gmail.com")
+                                    {
+                                        return "administrador";
+                                    }
                                    return "valido";
                                 }
                                 return "Usuário ou senha inválidos.";

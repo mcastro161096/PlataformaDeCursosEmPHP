@@ -1,4 +1,4 @@
 <?php
-header('Location: /LoginPHP/View/Login.php');
+header('Location: /PlataformaDeCursosEmPHP/View/Login.php');
 
 ?>

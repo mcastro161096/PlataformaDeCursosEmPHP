@@ -17,6 +17,10 @@ $usuarioRepositorio = new UsuarioRepositorio();
                                 
                         header('Location: /LoginPHP/View/Home.php');
         }
+        elseif ("administrador")
+        {
+            header('Location: /PlataformaDeCursosEmPHP/View/AreaAdmin.php');
+        }
         else
         {
             $_SESSION['msg'] = $usuario;
