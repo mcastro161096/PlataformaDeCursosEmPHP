@@ -1,7 +1,11 @@
 <?php
 session_start();
 include('../Repositorio/UsuariosRepositorio.php');
+include('../Repositorio/CursoRepositorio.php');
+
 $usuarioRepositorio = new UsuarioRepositorio();
+$cursoRepositorio = new CursoRepositorio();
+$cursos = $cursoRepositorio->BuscarTodosOsCursos();
 $row = $usuarioRepositorio->BuscaDadosDoUsuarioLogado($_SESSION['email'], $_SESSION['senha']);
 $_SESSION['nome'] = $row['Nome'];
 $_SESSION['sobrenome'] = $row['Sobrenome'];
@@ -17,9 +21,9 @@ $_SESSION['profissao'] = $row['Profissao'];
 <head>
   <title>Area administrativa</title>
   <meta charset="utf-8">
-  <link href="/LoginPHP/CSS/style.css" rel="stylesheet" type="text/css" />
-  <link href="/LoginPHP/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <link href="/LoginPHP/CSS/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+  <link href="/PlataformaDeCursosEmPHP/CSS/style.css" rel="stylesheet" type="text/css" />
+  <link href="/PlataformaDeCursosEmPHP/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="/PlataformaDeCursosEmPHP/CSS/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -32,7 +36,7 @@ $_SESSION['profissao'] = $row['Profissao'];
     <div class="collapse navbar-collapse pull-right" id="conteudoNavbarSuportado">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item ">
-          <form action="/LoginPHP/Controller/LoginController.php" method="POST">
+          <form action="/PlataformaDeCursosEmPHP/Controller/LoginController.php" method="POST">
           <input type="submit" class="nav-link pull-right" name="deslogar" href="#" value="Sair" />
           </form>
         </li>
@@ -44,9 +48,9 @@ $_SESSION['profissao'] = $row['Profissao'];
 
 <div class="container ">
 <div>
-<input type="button" class="btn btn-primary btn-lg" value="Cadastrar novo curso"/>
+<a href="https://localhost/PlataformaDeCursosEmPHP/View/CadastroDeCurso.php" class="btn btn-primary btn-lg">Cadastrar novo curso</a>
 </div>
-   
+   <?php echo $cursos['Link'] ?>
 
 </div>
 
@@ -55,8 +59,8 @@ $_SESSION['profissao'] = $row['Profissao'];
 
 
 </body>
-<script type="text/javascript" src="/LoginPHP/Scripts/bootstrap.min.js"></script>
-<script type="text/javascript" src="/LoginPHP/Scripts/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="/LoginPHP/Scripts/validacao.js"></script>
+<script type="text/javascript" src="/PlataformaDeCursosEmPHP/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="/PlataformaDeCursosEmPHP/Scripts/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/PlataformaDeCursosEmPHP/Scripts/validacao.js"></script>
 
 </html>
