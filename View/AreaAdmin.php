@@ -50,7 +50,31 @@ $_SESSION['profissao'] = $row['Profissao'];
 <div>
 <a href="https://localhost/PlataformaDeCursosEmPHP/View/CadastroDeCurso.php" class="btn btn-primary btn-lg">Cadastrar novo curso</a>
 </div>
-   <?php echo $cursos['Link'] ?>
+   <?php for($i = 0; $i < count($cursos); $i++)
+   {
+    $curso = $cursos['Link'];
+    $key = array_keys($cursos, "Link");
+      echo '<div class="row">'.$key.'</div>';
+//     function verificar(array $array)
+// {
+//     $keys = array();
+
+//     foreach ($array as $key => $value) {
+//         $keys[] = $key;
+
+//         if (is_array($value)) {
+//             $keys = array_merge($keys, verificar($value));
+//         }
+//     }
+
+//     return $keys;
+// }
+
+// $valores = verificar($cursos);
+// print_r($valores); 
+     
+   }
+  ?>
 
 </div>
 

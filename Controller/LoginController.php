@@ -19,6 +19,9 @@ $usuarioRepositorio = new UsuarioRepositorio();
         }
         elseif ("administrador")
         {
+            $_SESSION['logado'] = "true";
+                        $_SESSION['email'] = $dados['email'];
+                            $_SESSION['senha'] = $dados['senha'];
             header('Location: /PlataformaDeCursosEmPHP/View/AreaAdmin.php');
         }
         else
