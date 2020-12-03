@@ -1,13 +1,14 @@
 <?php
+session_start();
+include('../Repositorio/UsuariosRepositorio.php');
 include('../Repositorio/CursoRepositorio.php');
 
+
+$usuarioRepositorio = new UsuarioRepositorio();
 $cursoRepositorio = new CursoRepositorio();
 $cursos = $cursoRepositorio->BuscarTodosOsCursos();
-// $_SESSION['nome'] = $row['Nome'];
-// $_SESSION['sobrenome'] = $row['Sobrenome'];
-// $_SESSION['datanascimento'] = $row['DataNascimento'];
-// $_SESSION['escolaridade'] = $row['Escolaridade'];
-// $_SESSION['profissao'] = $row['Profissao'];
+
+$idUsuario = $_SESSION['id'];
 
 ?>
 <!DOCTYPE html>
@@ -59,10 +60,12 @@ $cursos = $cursoRepositorio->BuscarTodosOsCursos();
           {
             
             $html  .=
-            '<form action="/PlataformaDeCursosEmPHP/Controller/CadastroCursoController.php" method="POST"
+            '<form action="/PlataformaDeCursosEmPHP/Controller/MatriculaController.php" method="POST"
              class="col-md-3 te">
              <div>'. $key1.' 
-             <input type="hidden" value='.'"'.$curso['Id'].'"'.'name="id">
+             <input type="hidden" value='.'"'.$curso['Id'].'"'.'name="idCurso">
+             <input type="hidden" value='.'"'.$idUsuario.'"'.'name="idUsuario">
+
              <input type=submit class="btn btn-primary" value="Efetuar Matrícula" name="escolher">
             
             </div>

@@ -13,6 +13,20 @@ function BuscarTodosOsCursos()
     return $listaDeCursos;
 }
 
+function BuscarCursosMatriculado($idUsuario)
+{
+    $conexao = new mysqli("localhost", "root", "", "dbphp7");
+    $resutaldo = $conexao->query("SELECT uc.*, c.* FROM USUARIOCURSO uc
+    INNER JOIN CURSO c on uc.IdCurso = c.Id
+     WHERE uc.IdUsuario = $idUsuario;");
+    $listaDeCursos = [];
+     while($row = $resutaldo->fetch_assoc())
+     {
+       array_push($listaDeCursos, $row);
+     }
+    return $listaDeCursos;
+}
+
 function SalvarCurso($param)
 {
     $nome = $param['nome'];

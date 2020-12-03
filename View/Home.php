@@ -5,13 +5,17 @@ include('../Repositorio/CursoRepositorio.php');
 
 $usuarioRepositorio = new UsuarioRepositorio();
 $cursoRepositorio = new CursoRepositorio();
-$cursos = $cursoRepositorio->BuscarTodosOsCursos();
 $row = $usuarioRepositorio->BuscaDadosDoUsuarioLogado($_SESSION['email'], $_SESSION['senha']);
+$_SESSION['id']= $row['Id'];
 $_SESSION['nome'] = $row['Nome'];
 $_SESSION['sobrenome'] = $row['Sobrenome'];
 $_SESSION['datanascimento'] = $row['DataNascimento'];
 $_SESSION['escolaridade'] = $row['Escolaridade'];
 $_SESSION['profissao'] = $row['Profissao'];
+$cursos = $cursoRepositorio->BuscarCursosMatriculado($row['Id']);
+$idUsuario = $_SESSION['id'];
+$nomeUsuario = $row['Nome'];
+
 
 ?>
 
@@ -77,6 +81,57 @@ $_SESSION['profissao'] = $row['Profissao'];
     </div>
     <h3>Seus Cursos:</h3>
     <a href="https://localhost/PlataformaDeCursosEmPHP/View/EscolherCurso.php" class="btn btn-success">Escolher Curso</a>
+    <?php
+    $ultimolink = "";
+   $count = 1;
+   $nomeBotao = "";
+  
+  $html =  '<div class="row">';
+     foreach ($cursos as $curso)
+      {
+        
+        $key1 = $curso['Link'];
+        
+        if ($key1 != $ultimolink) 
+        {
+          
+          while ($count < 4 && $key1 != $ultimolink) 
+          {
+            if ($curso['Situacao'] == "Cursando") 
+            {
+              $nomeBotao = "Concluir";
+            }
+
+            if ($curso['Situacao'] == "Concluído") 
+            {
+              $nomeBotao = "Emitir Certificado";
+            }
+            
+            $html  .=
+            '<form action="/PlataformaDeCursosEmPHP/Controller/MatriculaController.php" method="POST"
+             class="col-md-3 te">
+             <div>'. $key1.' 
+             <input type="hidden" value='.'"'.$curso['Id'].'"'.'name="idCurso">
+             <input type="hidden" value='.'"'.$idUsuario.'"'.'name="idUsuario">
+             <input type="hidden" value='.'"'.$nomeUsuario.'"'.'name="nomeUsuario">
+             <input type="hidden" value='.'"'.$curso['Nome'].'"'.'name="idUsuario">
+             <input type="hidden" value='.'"'.$curso['Duracao'].'"'.'name="idUsuario">
+             <input type=submit class="btn btn-primary" value='.'"'.$nomeBotao.'"'.' name='.'"'.$nomeBotao.'"'.'>
+             <label>'.$curso['Situacao'].'</label>
+
+            
+            </div>
+            </form>';
+            $count++;
+            $ultimolink = $key1;
+          }
+         
+        }
+        
+     }
+     $html.= '</div>'; 
+            echo $html;
+?>
 
 
   </div>
