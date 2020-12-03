@@ -1,7 +1,11 @@
 <?php
 session_start();
 include('../Repositorio/UsuariosRepositorio.php');
+include('../Repositorio/CursoRepositorio.php');
+
 $usuarioRepositorio = new UsuarioRepositorio();
+$cursoRepositorio = new CursoRepositorio();
+$cursos = $cursoRepositorio->BuscarTodosOsCursos();
 $row = $usuarioRepositorio->BuscaDadosDoUsuarioLogado($_SESSION['email'], $_SESSION['senha']);
 $_SESSION['nome'] = $row['Nome'];
 $_SESSION['sobrenome'] = $row['Sobrenome'];
@@ -71,6 +75,9 @@ $_SESSION['profissao'] = $row['Profissao'];
         <input type="text" class="form-control input-lg" value="<?php echo $_SESSION['profissao'] ?>" readonly />
       </div>
     </div>
+    <h3>Seus Cursos:</h3>
+    <a href="https://localhost/PlataformaDeCursosEmPHP/View/EscolherCurso.php" class="btn btn-success">Escolher Curso</a>
+
 
   </div>
 

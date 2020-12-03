@@ -1,25 +1,20 @@
 <?php
-session_start();
-include('../Repositorio/UsuariosRepositorio.php');
 include('../Repositorio/CursoRepositorio.php');
 
-$usuarioRepositorio = new UsuarioRepositorio();
 $cursoRepositorio = new CursoRepositorio();
 $cursos = $cursoRepositorio->BuscarTodosOsCursos();
-$row = $usuarioRepositorio->BuscaDadosDoUsuarioLogado($_SESSION['email'], $_SESSION['senha']);
-$_SESSION['nome'] = $row['Nome'];
-$_SESSION['sobrenome'] = $row['Sobrenome'];
-$_SESSION['datanascimento'] = $row['DataNascimento'];
-$_SESSION['escolaridade'] = $row['Escolaridade'];
-$_SESSION['profissao'] = $row['Profissao'];
+// $_SESSION['nome'] = $row['Nome'];
+// $_SESSION['sobrenome'] = $row['Sobrenome'];
+// $_SESSION['datanascimento'] = $row['DataNascimento'];
+// $_SESSION['escolaridade'] = $row['Escolaridade'];
+// $_SESSION['profissao'] = $row['Profissao'];
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-  <title>Area administrativa</title>
+  <title>Home</title>
   <meta charset="utf-8">
   <link href="/PlataformaDeCursosEmPHP/CSS/style.css" rel="stylesheet" type="text/css" />
   <link href="/PlataformaDeCursosEmPHP/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -30,7 +25,7 @@ $_SESSION['profissao'] = $row['Profissao'];
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-inverse">
-    <a class="navbar-brand" href="#">Home administrativa</a>
+    <a class="navbar-brand" href="#">Home</a>
 
 
     <div class="collapse navbar-collapse pull-right" id="conteudoNavbarSuportado">
@@ -46,20 +41,9 @@ $_SESSION['profissao'] = $row['Profissao'];
   </nav>
 
 
-<div class="container ">
-<div>
-<a href="https://localhost/PlataformaDeCursosEmPHP/View/CadastroDeCurso.php" class="btn btn-success btn-lg">Cadastrar novo curso</a>
-</div>
-   <?php 
-   function printFind($item, $key)
-   {
-    if($key == 'Link')
-    {
-        // echo '<div class="row">'.$item.'</div>';
-        return $item;
-    }
-   }
-   $ultimolink = "";
+  <div class="container ">
+<?php
+  $ultimolink = "";
    $count = 1;
   
   $html =  '<div class="row">';
@@ -79,8 +63,7 @@ $_SESSION['profissao'] = $row['Profissao'];
              class="col-md-3 te">
              <div>'. $key1.' 
              <input type="hidden" value='.'"'.$curso['Id'].'"'.'name="id">
-             <input type=submit class="btn btn-primary" value="Editar" name="editar">
-            <input type=submit class="btn btn-danger" value="Excluir" name="excluir">
+             <input type=submit class="btn btn-primary" value="Efetuar Matrícula" name="escolher">
             
             </div>
             </form>';
@@ -93,13 +76,10 @@ $_SESSION['profissao'] = $row['Profissao'];
      }
      $html.= '</div>'; 
             echo $html;
-  ?>
+?>
 
-</div>
-
-
-
-
+    
+  </div>
 
 </body>
 <script type="text/javascript" src="/PlataformaDeCursosEmPHP/Scripts/bootstrap.min.js"></script>
