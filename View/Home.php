@@ -114,8 +114,8 @@ $nomeUsuario = $row['Nome'];
              <input type="hidden" value='.'"'.$curso['Id'].'"'.'name="idCurso">
              <input type="hidden" value='.'"'.$idUsuario.'"'.'name="idUsuario">
              <input type="hidden" value='.'"'.$nomeUsuario.'"'.'name="nomeUsuario">
-             <input type="hidden" value='.'"'.$curso['Nome'].'"'.'name="idUsuario">
-             <input type="hidden" value='.'"'.$curso['Duracao'].'"'.'name="idUsuario">
+             <input type="hidden" value='.'"'.$curso['Nome'].'"'.'name="nomeCurso">
+             <input type="hidden" value='.'"'.$curso['Duracao'].'"'.'name="duracao">
              <input type=submit class="btn btn-primary" value='.'"'.$nomeBotao.'"'.' name='.'"'.$nomeBotao.'"'.'>
              <label>'.$curso['Situacao'].'</label>
 

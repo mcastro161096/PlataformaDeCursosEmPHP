@@ -8,9 +8,9 @@
 <head>
   <title>Cadastro</title>
   <meta charset="utf-8">
-  <link href="/LoginPHP/CSS/style.css" rel="stylesheet" type="text/css" />
-  <link href="/LoginPHP/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <link href="/LoginPHP/CSS/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+  <link href="/PlataformaDeCursosEmPHP/CSS/style.css" rel="stylesheet" type="text/css" />
+  <link href="/PlataformaDeCursosEmPHP/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="/PlataformaDeCursosEmPHP/CSS/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -21,7 +21,7 @@
 
   <div class="container ">
 
-    <form action="/LoginPHP/Controller/CadastroController.php" method="POST">
+    <form action="/PlataformaDeCursosEmPHP/Controller/CadastroController.php" method="POST">
       <div class="form-group">
         <h3>Seus dados:</h3>
         <div class="input-group ">
@@ -70,8 +70,8 @@
 
 
 </body>
-<script type="text/javascript" src="/LoginPHP/Scripts/bootstrap.min.js"></script>
-<script type="text/javascript" src="/LoginPHP/Scripts/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="/LoginPHP/Scripts/validacao.js"></script>
+<script type="text/javascript" src="/PlataformaDeCursosEmPHP/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="/PlataformaDeCursosEmPHP/Scripts/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/PlataformaDeCursosEmPHP/Scripts/validacao.js"></script>
 
 </html>

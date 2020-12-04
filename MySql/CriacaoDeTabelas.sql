@@ -12,3 +12,23 @@ Profissao VARCHAR(256) NOT NULL,
 DataCadastro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP()
 );
 
+USE dbphp7;
+CREATE TABLE CURSO(
+Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+Nome VARCHAR(256) NOT NULL,
+Duracao DECIMAL(15,1),
+Link VARCHAR(1000) NOT NULL
+);
+
+USE dbphp7;
+CREATE TABLE USUARIOCURSO(
+Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+IdUsuario INT NOT NULL,
+IdCurso INT NOT NULL,
+Situacao varchar(30),
+Constraint UC_fkUsuario foreign key(IdUsuario) references Usuarios(Id),
+Constraint UC_fkCurso foreign key(IdCurso) references CURSO(Id)
+);
+
+
+
